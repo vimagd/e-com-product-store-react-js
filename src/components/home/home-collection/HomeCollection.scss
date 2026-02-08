@@ -1,0 +1,205 @@
+//comman mixins
+@mixin collImg {
+  width: 100%;
+  height: auto;
+  background-image: url("../../../assets/collections/collection-1.jpg");
+  background-size: 100% 100%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  animation: slider 20s linear infinite;
+}
+
+@mixin collTitle {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-172026);
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin collDesc {
+  font: var(--unnamed-font-style-normal) normal
+    var(--unnamed-font-weight-normal) var(--unnamed-font-size-16) /
+    var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-172026);
+  margin: auto;
+  padding: 0;
+  opacity: 1;
+}
+
+.col-button-span{
+  align-self: center;
+  
+}
+
+@mixin collButton {
+  width: 220px;
+  height: 40px;
+  text-align: center;
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-14) / 16px var(--unnamed-font-family-muli);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-e26a2c);
+  text-transform: uppercase;
+  background: var(--white) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #39373729;
+  border: 2px solid #d4703d;
+  opacity: 1;
+  cursor: pointer;
+}
+
+@keyframes slider {
+  0% {
+    background-image: url("../../../assets/collections/collection-2.jpg");
+  }
+  20% {
+    background-image: url("../../../assets/collections/collection-3.jpg");
+  }
+  40% {
+    background-image: url("../../../assets/collections/collection-4.jpg");
+  }
+  60% {
+    background-image: url("../../../assets/collections/collection-5.jpg");
+  }
+  80% {
+    background-image: url("../../../assets/collections/collection-6.jpg");
+  }
+  100% {
+    background-image: url("../../../assets/collections/collection-7.jpg");
+  }
+}
+
+.collection-image {
+  @include collImg;
+}
+
+.collection-title {
+  @include collTitle;
+}
+
+.collection-description {
+  @include collDesc;
+}
+
+
+.collection-shop-collection-button {
+  @include collButton;
+  transition: all 1s;
+}
+
+.collection-shop-collection-button:hover {
+  color: var(--white);
+  background: var(--unnamed-color-e26a2c) 0% 0% no-repeat padding-box;
+}
+
+.collection-divider {
+  width: 20%;
+  border: 2px solid var(--unnamed-color-e26a2c);
+  align-self: center;
+}
+
+//mobile and tablet view
+@media all and (min-width: 320px) and (max-width: 768px) {
+  .home-collection {
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr 1.5fr 2fr 1fr 0.2fr;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .collection-title {
+    align-self: center;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600)
+      30px / var(--unnamed-line-spacing-30)
+      var(--unnamed-font-family-source-serif-pro);
+    text-align: center;
+  }
+
+  .collection-description {
+    text-align: center;
+  }
+
+  .col-button-span{
+    justify-self: center;
+  }
+
+  .col-hr-span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+//Desktop view
+@media all and (min-width: 769px) {
+  .home-collection {
+    width: 100%;
+    height: 100%;
+    padding: 5% 9%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 3fr 3fr 3fr 0.5fr 1fr;
+  }
+
+  .collection-image {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+  }
+
+  .collection-title {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600)
+      var(--unnamed-font-size-36) / var(--unnamed-line-spacing-45)
+      var(--unnamed-font-family-source-serif-pro);
+    padding: 3% 10%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 55, 55, 0.1607843137);
+    display: flex;
+    align-items: center;
+  }
+
+  .collection-description {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    text-align: start;
+    padding: 3% 10%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 55, 55, 0.1607843137);
+    display: flex;
+    align-items: center;
+  }
+
+  .col-button-span {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    justify-self: start;
+    padding: 3% 10%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 55, 55, 0.1607843137);
+    display: flex;
+    align-items: center;
+  }
+
+  .col-hr-span{
+    grid-column: 1/2;
+    grid-row: 5/6;
+    justify-self: start;
+    padding: 3% 10%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 55, 55, 0.1607843137);
+    display: flex;
+    align-items: center;
+  }
+}

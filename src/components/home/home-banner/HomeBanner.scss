@@ -1,0 +1,268 @@
+//comman mixins
+
+@mixin bannerButton {
+  height: 45px;
+  width: 250px;
+  padding: 0 5%;
+  background: var(--unnamed-color-e26a2c) 0% 0% no-repeat padding-box;
+  border: 2px solid #d4703d;
+  box-shadow: 0px 3px 6px #39373729;
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-14) / 16px var(--unnamed-font-family-muli);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 1;
+  cursor: pointer;
+}
+
+@mixin bannerImg {
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin sliderBullets {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@mixin radioBullets {
+  outline: 1px white solid;
+  border-radius: 50%;
+  background: #666666 0% 0% no-repeat padding-box;
+  cursor: pointer;
+}
+
+.banner-img {
+  z-index: -1;
+  @include bannerImg;
+}
+
+.banner-button {
+  @include bannerButton;
+  transition: all 1s;
+}
+
+.banner-button:hover {
+  color: var(--unnamed-color-e26a2c);
+  background: var(--white) 0% 0% no-repeat padding-box;
+}
+
+.slider-bullets {
+  @include sliderBullets;
+}
+
+.radio-bullets {
+  @include radioBullets;
+}
+
+.radio-bullets-show {
+  opacity: 1;
+}
+
+.radio-bullets-hide {
+  opacity: 0.3;
+}
+
+.active-hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.8s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.active-show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.8s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.border-background {
+  background: white;
+  opacity: 0.5;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.banner-forword-svg {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.banner-backword-svg {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+//mobile and tablet view
+@media all and (min-width: 320px) and (max-width: 768px) {
+  .banner-li {
+    background: transparent linear-gradient(181deg, #f1f1f100 0%, #f0f0f0 100%)
+      0% 0% no-repeat padding-box;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 0.5fr 0.2fr;
+    gap: 5px 0;
+  }
+
+  .banner-img {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    height: 90vh;
+    z-index: -1;
+  }
+
+  .banner-backword {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: start;
+    justify-self: end;
+    cursor: pointer;
+  }
+
+  .banner-forword {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: start;
+    justify-self: start;
+    cursor: pointer;
+  }
+
+  .banner-title {
+    align-self: end;
+    justify-self: center;
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    padding: 0 5%;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600)
+      var(--unnamed-font-size-36) / var(--unnamed-line-spacing-45)
+      var(--unnamed-font-family-source-serif-pro);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    text-align: center;
+    color: #1b252c;
+    opacity: 1;
+  }
+
+  .banner-discription {
+    align-self: center;
+    justify-self: center;
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    padding: 0 5%;
+    font: var(--unnamed-font-style-normal) normal
+      var(--unnamed-font-weight-normal) var(--unnamed-font-size-16) /
+      var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+    text-align: center;
+    color: #1b252c;
+    opacity: 1;
+  }
+
+  .banner-button {
+    align-self: center;
+    justify-self: center;
+    grid-column: 1/-1;
+    grid-row: 4/5;
+  }
+
+  .slider-bullets {
+    grid-column: 1/-1;
+    grid-row: 5/6;
+  }
+
+  .radio-bullets {
+    padding: 1%;
+  }
+}
+
+//Desktop view
+@media all and (min-width: 769px) {
+  .banner-li {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.5fr 1fr 0.2fr;
+    grid-template-rows: 1fr 0.5fr 1fr;
+    column-gap: 2rem;
+    background-color: #39373729;
+  }
+
+  .banner-img {
+    height: 55vh;
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    object-position: 70% 30%;
+  }
+
+  #ban-eight,
+  #ban-six,
+  #ban-five {
+    object-position: 70% 50%;
+  }
+
+  .banner-title {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: end;
+    justify-self: start;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-600)
+      var(--unnamed-font-size-36) / var(--unnamed-line-spacing-45)
+      var(--unnamed-font-family-source-serif-pro);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-172026);
+    text-align: left;
+    opacity: 1;
+  }
+
+  .banner-discription {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: start;
+    font: var(--unnamed-font-style-normal) normal
+      var(--unnamed-font-weight-normal) var(--unnamed-font-size-16) /
+      var(--unnamed-line-spacing-24) var(--unnamed-font-family-muli);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-172026);
+    text-align: left;
+    opacity: 1;
+  }
+
+  .banner-button {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .banner-backword {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+
+  .banner-forword {
+    grid-column: 5/-1;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+
+  .slider-bullets {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .radio-bullets {
+    padding: 3%;
+  }
+}
