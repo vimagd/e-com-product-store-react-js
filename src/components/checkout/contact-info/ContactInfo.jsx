@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React, { useEffect, useState } from "react";
 import "./ContactInfo.scss";
 import { contactInfoDetails, getContactInfoDetails } from "../../../state/checkout/contactInfo.slice";

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./PlaceOrder.scss";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { contactInfoDetails, getContactInfoDetails } from "../../../state/checkout/contactInfo.slice";
-import { shippingMethodDetails, getShippingMethodDetails } from "../../../state/checkout/shippingMethod.slice";
-import { paymentInfoDetails, getPaymentInfoDetails } from "../../../state/checkout/paymentInfo.slice";
+import { getContactInfoDetails } from "../../../state/checkout/contactInfo.slice";
+import { getShippingMethodDetails } from "../../../state/checkout/shippingMethod.slice";
+import { getPaymentInfoDetails } from "../../../state/checkout/paymentInfo.slice";
 
 const PlaceOrder = () => {
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import "./ProductDetails.scss";
 import { useParams } from "react-router-dom";

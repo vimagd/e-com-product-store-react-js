@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import "./SideBarOption.scss";
 import xSVG from '../../../assets/svg/x.svg';
@@ -93,6 +94,7 @@ const SideBarOption = () => {
             items[i].isChecked = getAllSelected.includes(o.name) ? true : false;
         });
         setListOfItems(items);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [getAllSelected]);
 
     const toggleFilterMethod = () => {
